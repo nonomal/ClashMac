@@ -1,0 +1,62 @@
+name: Smart Clear History
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+
+jobs:
+  clear:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Git
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Actions"
+
+      - name: Collect all tag names
+        id: tags
+        run: |
+          TAGS=$(git tag --sort=creatordate)
+          echo "tags=$TAGS" >> $GITHUB_OUTPUT
+
+      - name: Create empty newmain branch
+        run: |
+          git checkout --orphan newmain
+          git reset --hard
+
+      - name: Apply each tag snapshot
+        run: |
+          mkdir tag_snapshot
+          for t in ${{ steps.tags.outputs.tags }}; do
+            echo "Processing tag $t..."
+            git checkout "$t" -- . || true
+          done
+
+      - name: Apply latest project state
+        run: |
+          git checkout main -- . || true
+
+      - name: Final Initial commit
+        run: |
+          git add -A
+          git commit -m "Initial commit"
+
+      - name: Replace main
+        run: |
+          git branch -D main || true
+          git branch -m main
+          git push -f origin main
+
+      - name: Cleanup workflows
+        uses: Mattraks/delete-workflow-runs@main
+        with:
+          retain_days: 0
+          keep_minimum_runs: 0
