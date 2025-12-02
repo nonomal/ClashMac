@@ -89,6 +89,9 @@ The full list of licenses is available in:
 - [Vernesong](https://github.com/vernesong/mihomo)
 - [Zashboard](https://github.com/Zephyruso/zashboard)
 
+## Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=666OS/ClashMac&type=Date)](https://star-history.com/#666OS/ClashMac&Date)
+
 ---
 
 <p align="center">
