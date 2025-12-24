@@ -36,9 +36,19 @@
 </p>
 
 ## Preview
-| Dark                             | Light                             |
-| -------------------------------- | --------------------------------- |
-| ![Dark](./assets/preview_dark.png) | ![Light](./assets/preview_light.png) |
+<table>
+  <tr>
+    <th>Dark</th>
+    <th>Light</th>
+  </tr>
+  <tr>
+    <td><img src="./assets/preview_dark.png" alt="Dark"></td>
+    <td><img src="./assets/preview_light.png" alt="Light"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img src="./assets/preview_proxies.png" alt="Proxies"></td>
+  </tr>
+</table>
 
 ## Features
 

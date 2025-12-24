@@ -36,9 +36,19 @@
 </p>
 
 ## 预览
-| 深色                             | 浅色                             |
-| -------------------------------- | --------------------------------- |
-| ![Dark](./assets/preview_dark.png) | ![Light](./assets/preview_light.png) |
+<table>
+  <tr>
+    <th>深色</th>
+    <th>浅色</th>
+  </tr>
+  <tr>
+    <td><img src="./assets/preview_dark.png" alt="深色"></td>
+    <td><img src="./assets/preview_light.png" alt="浅色"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img src="./assets/preview_proxies.png" alt="代理"></td>
+  </tr>
+</table>
 
 ## 特色功能
 
