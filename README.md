@@ -35,6 +35,11 @@
   </a>
 </p>
 
+## Preview
+| Dark                             | Light                             |
+| -------------------------------- | --------------------------------- |
+| ![Dark](./assets/preview_dark.png) | ![Light](./assets/preview_light.png) |
+
 ## Features
 
 - **Native Application**: Built with SwiftUI, seamlessly integrated with macOS
