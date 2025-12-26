@@ -88,8 +88,7 @@
 
 **提示**: 不确定您的 Mac 类型？点击左上角  → 关于本机，查看"芯片"信息。
 
-> **注意：Mac Gatekeeper 可能会拦截未签名应用**  
-> 因为 ClashMac 没有经过 Apple notarize（公证），macOS 默认不允许直接打开。
+> **注意：Mac Gatekeeper 可能会拦截未签名应用**
 
 ### 解决方法
 
@@ -117,7 +116,17 @@ xattr -d com.apple.quarantine /Applications/ClashMac.app
 ```
 回车后重新打开应用
 
-## ⚠️ 重要说明
+## 安全设计
+
+**特权助手安全加固**：修复潜在的命令注入漏洞
+
+- **白名单路径验证**：仅允许 `/Applications/ClashMac.app/` 内的内核执行
+- **权限收紧**：限制为管理员用户访问
+- **POC 验证**：`/bin/sh`、路径穿越等攻击均被拦截
+
+> *"安全是一个过程，而非产品。"* — Bruce Schneier
+
+## 重要说明
 
 本项目本体暂不开源，当前仓库主要用于发布版本和接受反馈。  
 应用使用的第三方开源组件我们均已按要求公开 License。

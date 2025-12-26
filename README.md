@@ -88,8 +88,7 @@ Download the latest version from the [Releases page](https://github.com/666OS/Cl
 
 **Tip**: Not sure which Mac you have? Click the  menu at the top left → About This Mac, and check the "Chip" information.
 
-> **Note: Mac Gatekeeper may block unsigned applications**  
-> Since ClashMac is not Apple notarized, macOS will not allow it to open directly by default.
+> **Note: Mac Gatekeeper may block unsigned applications**
 
 ### Solutions
 
@@ -117,7 +116,17 @@ xattr -d com.apple.quarantine /Applications/ClashMac.app
 ```
 Press Enter and reopen the application
 
-## ⚠️ Important Notice
+## Security Design
+
+**Privileged Helper Security Hardening**: Fixed potential command injection vulnerabilities
+
+- **Whitelist Path Validation**: Only allows kernel execution from `/Applications/ClashMac.app/`
+- **Permission Tightening**: Restricted to admin user access only
+- **POC Verified**: Attacks like `/bin/sh`, path traversal are all blocked
+
+> *"Security is a process, not a product."* — Bruce Schneier
+
+## Important Notice
 
 The main project is currently not open source. This repository is primarily for publishing releases and collecting feedback.  
 All third-party open-source components used in this application have their licenses publicly disclosed as required.
